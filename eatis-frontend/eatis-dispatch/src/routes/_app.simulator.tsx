@@ -79,14 +79,14 @@ type SimForm = {
 const defaultForm: SimForm = {
   name: "",
   description: "",
-  event_type: "music_festival",
+  event_type: "",
   location_name: "",
   address: "",
   latitude: "",
   longitude: "",
   start_datetime: "",
   end_datetime: "",
-  expected_crowd_size: "5000",
+  expected_crowd_size: "",
   road_closure: false,
   road_closure_details: "",
 };
@@ -186,9 +186,9 @@ function Simulator() {
             </div>
             <div className="space-y-2">
               <Label>Event Type</Label>
-              <Select value={form.event_type} onValueChange={(v) => f({ event_type: v })}>
+              <Select value={form.event_type || undefined} onValueChange={(v) => f({ event_type: v })}>
                 <SelectTrigger>
-                  <SelectValue />
+                  <SelectValue placeholder="Select event type..." />
                 </SelectTrigger>
                 <SelectContent>
                   {EVENT_TYPES.map((t) => (

@@ -52,7 +52,7 @@ type FormState = {
 const emptyForm: FormState = {
   name: "",
   description: "",
-  event_type: "political_rally",
+  event_type: "",
   location_name: "",
   address: "",
   latitude: "",
@@ -79,7 +79,7 @@ export function EventForm({ initial, mode }: Props) {
     setForm({
       name: initial.name ?? "",
       description: initial.description ?? "",
-      event_type: initial.event_type ?? "political_rally",
+      event_type: initial.event_type ?? "",
       location_name: initial.location_name ?? "",
       address: initial.address ?? "",
       latitude: initial.latitude != null ? String(initial.latitude) : "",
@@ -161,11 +161,11 @@ export function EventForm({ initial, mode }: Props) {
           <div className="space-y-2">
             <Label>Event Type</Label>
             <Select
-              value={form.event_type}
+              value={form.event_type || undefined}
               onValueChange={(v) => setForm({ ...form, event_type: v })}
             >
               <SelectTrigger>
-                <SelectValue />
+                <SelectValue placeholder="Select event type..." />
               </SelectTrigger>
               <SelectContent>
                 {EVENT_TYPES.map((t) => (
