@@ -1,0 +1,1 @@
+# EATIS schemas package

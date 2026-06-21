@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+
+# Environment
+.env
+.env.local
+
+# Models (trained artifacts — regenerate via scripts/train_from_csv.py)
+models/
+*.json.bak
+
+# Data files (large CSVs — don't commit to repo)
+*.csv
+data/
+
+# Database
+*.db
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs
+*.log
+
+# Alembic (keep versions, ignore __pycache__)
+alembic/__pycache__/
