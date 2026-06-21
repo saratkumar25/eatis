@@ -74,11 +74,11 @@ class Event(Base):
 
     # Relationships
     created_by_user = relationship("User", back_populates="events", foreign_keys=[created_by])
-    prediction = relationship("Prediction", back_populates="event", uselist=False, lazy="select")
-    resources = relationship("Resource", back_populates="event", uselist=False, lazy="select")
-    routes = relationship("Route", back_populates="event", lazy="select")
-    ai_queries = relationship("AIQuery", back_populates="event", lazy="select")
-    post_event_analysis = relationship("PostEventAnalysis", back_populates="event", uselist=False, lazy="select")
-
+    prediction = relationship("Prediction", back_populates="event", uselist=False, lazy="select", cascade="all, delete-orphan")
+    resources = relationship("Resource", back_populates="event", uselist=False, lazy="select", cascade="all, delete-orphan")
+    routes = relationship("Route", back_populates="event", lazy="select", cascade="all, delete-orphan")
+    ai_queries = relationship("AIQuery", back_populates="event", lazy="select", cascade="all, delete-orphan")
+    post_event_analysis = relationship("PostEventAnalysis", back_populates="event", uselist=False, lazy="select", cascade="all, delete-orphan")
+    
     def __repr__(self) -> str:
         return f"<Event id={self.id} name={self.name} type={self.event_type}>"
