@@ -35,7 +35,10 @@ COPY --from=builder /install /usr/local
 # Copy application source
 COPY --chown=eatis:eatis . .
 
-# Model directory (mounted as volume in production)
+# Copy pre-trained models (if they exist)
+COPY --chown=eatis:eatis models/ /app/models/
+
+# Create models directory (fallback)
 RUN mkdir -p /app/models && chown eatis:eatis /app/models
 
 USER eatis

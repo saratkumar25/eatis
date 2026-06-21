@@ -2,13 +2,16 @@ version: "3.9"
 
 # ─── EATIS Full Stack ─────────────────────────────────────────────────────────
 # Usage:
-#   docker compose up --build          # start everything
+#   docker compose up --build          # start everything (uses .env for DB)
 #   docker compose up -d               # detached
 #   docker compose down -v             # teardown + remove volumes
+#
+# To use local DB:     comment out DATABASE_URL in .env
+# To use Supabase:     set DATABASE_URL=postgresql://...supabase...?sslmode=require in .env
 
 services:
 
-  # ── PostgreSQL ──────────────────────────────────────────────────────────────
+  # ── PostgreSQL (local fallback — only used when DATABASE_URL is not set) ──────
   db:
     image: postgres:16-alpine
     container_name: eatis_db
@@ -37,11 +40,11 @@ services:
       target: runtime
     container_name: eatis_api
     restart: unless-stopped
-    depends_on:
-      db:
-        condition: service_healthy
+    dns:
+      - 8.8.8.8    # Google DNS — fixes hostname resolution for external DBs
+      - 8.8.4.4
     environment:
-      DATABASE_URL: postgresql://eatis_user:eatis_password@db:5432/eatis_db
+      DATABASE_URL: ${DATABASE_URL:-postgresql://eatis_user:eatis_password@db:5432/eatis_db}
       SECRET_KEY: ${SECRET_KEY:-dev-secret-change-in-production-xyz}
       ALGORITHM: HS256
       ACCESS_TOKEN_EXPIRE_MINUTES: 60
@@ -59,7 +62,7 @@ services:
       - "8001:8000"
     volumes:
       - model_data:/app/models          # persist trained models
-      - ./app:/app/app:ro               # live-reload in dev (remove :ro for prod)
+      - ./app:/app/app:ro               # live-reload in dev
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
       interval: 30s
