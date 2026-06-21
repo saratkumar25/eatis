@@ -1,0 +1,26 @@
+{
+  "model_version": "2.0.0-astram",
+  "trained_at": "2026-06-21T10:57:05.250024",
+  "source": "Astram real-world Bangalore traffic CSV",
+  "n_samples": 8173,
+  "classifier_accuracy": 0.8401305057096248,
+  "feature_names": [
+    "crowd_size_log",
+    "duration_hours",
+    "has_road_closure",
+    "day_of_week",
+    "hour_of_day",
+    "is_weekend",
+    "type_political_rally",
+    "type_sports_event",
+    "type_music_festival",
+    "type_cultural_event",
+    "type_religious_gathering",
+    "type_construction",
+    "type_public_demonstration",
+    "type_marathon",
+    "type_parade",
+    "type_exhibition",
+    "type_other"
+  ]
+}
