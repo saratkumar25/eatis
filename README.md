@@ -115,6 +115,7 @@ Simulate future events and analyze:
 
 ---
 
+
 ## 🏛️ System Architecture
 
 ```text
@@ -141,62 +142,23 @@ Events Heatmaps Diversions Reports
 
 ---
 
-## Getting Started
-
-### Backend
-
-```bash
-cd eatis-backend
-cp .env.example .env
-```
-
-Add your Gemini API Key:
-
-```env
-GEMINI_API_KEY=your_api_key
-```
-
-Start services:
-
-```bash
-docker compose up --build -d
-```
-
-Backend API:
-
-```text
-http://localhost:8001
-```
-
-Swagger Documentation:
-
-```text
-http://localhost:8001/docs
-```
-
----
-
-### Frontend
-
-```bash
-cd eatis-frontend/eatis-dispatch
-npm install
-npm run dev
-```
-
-Frontend URL:
-
-```text
-http://localhost:5173
-```
-
----
-
 ## Default Credentials
 
+Live URL: https://eatis.vercel.app/
+### Operator role:
 ```text
-Email: admin@eatis.gov
-Password: Admin@123
+Email: operator1@gmail.com
+Password: operator123
+```
+### Analyst role:
+```text
+Email: analyst1@gmail.com
+Password: operator123
+```
+### Viewer role:
+```text
+Email: viewer1@gmail.com
+Password: operator123
 ```
 
 ---
