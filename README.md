@@ -2,6 +2,15 @@
 
 **Predict. Plan. Prevent Traffic Congestion Before It Happens.**
 
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?logo=fastapi&logoColor=white)
+![React](https://img.shields.io/badge/React-Frontend-61DAFB?logo=react&logoColor=black)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
+![XGBoost](https://img.shields.io/badge/XGBoost-ML%20Model-AA0000)
+![Gemini](https://img.shields.io/badge/Gemini-2.5%20Flash-4285F4?logo=googlegemini&logoColor=white)
+![Status](https://img.shields.io/badge/status-active-success)
+
 EATIS (Event Traffic Intelligence System) is an AI-powered traffic management platform designed to help traffic authorities predict and manage congestion caused by public events such as festivals, political rallies, sports events, construction activities, and public gatherings.
 
 Using **Machine Learning (XGBoost)**, **Geospatial Analysis**, and **Gemini AI**, EATIS predicts traffic impact, generates congestion heatmaps, recommends resource deployment, suggests diversion routes, and provides AI-powered decision support.
