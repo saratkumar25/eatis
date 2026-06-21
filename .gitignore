@@ -18,7 +18,6 @@ dist/
 # .env.production is committed as a template (fill in real values before deploy)
 
 # ── ML Models (regenerate via scripts/train_from_csv.py) ──────────────────────
-eatis-backend/models/
 *.json.bak
 
 # ── Data files (large CSVs) ───────────────────────────────────────────────────
