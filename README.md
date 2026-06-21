@@ -17,67 +17,38 @@ EATIS is an AI-powered traffic management platform that helps traffic authoritie
 
 ---
 
+## How to Use
+ 
+Once you're logged into the dashboard, here's the typical workflow:
+ 
+1. **Create an event**
+   Go to **Events → New Event** and fill in the location, expected crowd size, duration, and any planned road closures. This is the only manual input the system needs — everything else is generated from it.
+2. **Check the traffic prediction**
+   Open the event's detail page to see the model's output: predicted **congestion severity**, **risk score**, **delay time**, and **impact radius**.
+3. **View the heatmap**
+   Switch to the **Map / Heatmap** view to see the predicted congestion overlaid on the area around the event, including high-risk zones.
+4. **Review resource recommendations**
+   The **Resources** tab shows the suggested number of traffic officers, barricades, patrol vehicles, and emergency units for the event.
+5. **Check suggested diversions**
+   The **Diversions** tab lists alternative routes, road-closure suggestions, and emergency corridors to plan around the predicted impact.
+6. **Run a simulation (optional)**
+   Use the **Event Simulator** to test a hypothetical event before it's confirmed — adjust crowd size or location and see how the prediction changes.
+7. **Ask the AI Copilot**
+   Use the chat panel to ask plain-language questions, e.g. *"Which roads are highest risk for Saturday's event?"* or *"Summarize this week's traffic reports."*
+8. **Check analytics**
+   The **Analytics** section tracks event statistics, congestion trends, resource utilization, and post-event analysis over time.
+---
+ 
 ## Key Features
-
-### Event Management
-
-* Create and manage event records
-* Track event location, duration, crowd size, and road closures
-
-### Traffic Prediction Engine
-
-* XGBoost-based congestion prediction
-* Predicts:
-
-  * Congestion Severity
-  * Risk Score
-  * Delay Time
-  * Impact Radius
-
-### Congestion Heatmaps
-
-* Predictive traffic heatmaps
-* High-risk zone identification
-* Impact radius visualization
-
-### Resource Allocation Engine
-
-Automatically recommends:
-
-* Traffic Officers
-* Barricades
-* Patrol Vehicles
-* Emergency Units
-
-### Route Diversion Engine
-
-* Alternative route recommendations
-* Road closure planning
-* Emergency corridor suggestions
-
-### Event Simulator
-
-Simulate future events and analyze:
-
-* Traffic impact
-* Congestion levels
-* Resource requirements
-* Diversion plans
-
-### Gemini AI Traffic Copilot
-
-* Natural language traffic queries
-* Event impact explanations
-* Resource recommendations
-* Traffic reports and insights
-
-### Analytics & Reporting
-
-* Event statistics
-* Congestion trends
-* Resource utilization metrics
-* Post-event analysis
-
+ 
+- **Event Management** — create and track events, locations, crowd size, and road closures
+- **Traffic Prediction Engine** — XGBoost model for congestion severity, risk score, delay time, impact radius
+- **Congestion Heatmaps** — predictive heatmaps and high-risk zone visualization
+- **Resource Allocation Engine** — recommends officers, barricades, patrol vehicles, emergency units
+- **Route Diversion Engine** — alternative routes, closure planning, emergency corridors
+- **Event Simulator** — test hypothetical events before committing to a plan
+- **Gemini AI Traffic Copilot** — natural-language querying, explanations, and reports
+- **Analytics & Reporting** — trends, utilization metrics, post-event analysis
 ---
 
 ## Tech Stack
@@ -135,6 +106,8 @@ Password: operator123
 Email: viewer1@gmail.com
 Password: operator123
 ```
+
+Local development only — change these (or remove the seed) before deploying anywhere publicly reachable.
 
 ---
 
