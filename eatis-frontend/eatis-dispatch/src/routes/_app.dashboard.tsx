@@ -119,19 +119,19 @@ function Dashboard() {
       </div>
 
       <div className="grid lg:grid-cols-3 gap-6">
-        <Card className="lg:col-span-2 p-5">
+        <Card className="lg:col-span-2 p-5 min-w-0">
           <div className="display uppercase text-sm tracking-wider mb-4 text-muted-foreground">
             Active &amp; Upcoming Events
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead className="text-left text-xs uppercase text-muted-foreground mono">
-                <tr>
-                  <th className="py-2">Name</th>
-                  <th>Type</th>
-                  <th>Location</th>
-                  <th>Start</th>
-                  <th>Status</th>
+                <tr className="border-b border-border/50">
+                  <th className="py-2 pr-4 font-semibold whitespace-nowrap">Name</th>
+                  <th className="pr-4 font-semibold whitespace-nowrap">Type</th>
+                  <th className="pr-4 font-semibold whitespace-nowrap">Location</th>
+                  <th className="pr-4 font-semibold whitespace-nowrap">Start</th>
+                  <th className="font-semibold whitespace-nowrap">Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -147,22 +147,22 @@ function Dashboard() {
                     key={e.id}
                     className="border-t border-border hover:bg-accent/40 transition-colors"
                   >
-                    <td className="py-2">
+                    <td className="py-3 pr-4 whitespace-nowrap">
                       <Link
                         to="/events/$id"
                         params={{ id: String(e.id) }}
-                        className="text-primary hover:underline"
+                        className="text-primary hover:underline font-medium"
                       >
                         {e.name}
                       </Link>
                     </td>
-                    <td className="mono text-xs">{e.event_type}</td>
-                    <td>{e.location_name}</td>
-                    <td className="mono text-xs">
+                    <td className="pr-4 mono text-xs whitespace-nowrap text-muted-foreground">{e.event_type}</td>
+                    <td className="pr-4 whitespace-nowrap truncate max-w-[200px]" title={e.location_name}>{e.location_name}</td>
+                    <td className="pr-4 mono text-xs whitespace-nowrap">
                       {e.start_datetime ? formatIST(e.start_datetime, "MMM d, HH:mm") : "—"}
                     </td>
-                    <td>
-                      <span className="mono text-xs uppercase">{e.status}</span>
+                    <td className="whitespace-nowrap">
+                      <span className="mono text-[10px] uppercase bg-accent px-2 py-1 rounded-md">{e.status}</span>
                     </td>
                   </tr>
                 ))}

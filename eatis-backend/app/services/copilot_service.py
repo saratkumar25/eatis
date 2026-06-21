@@ -111,6 +111,22 @@ def ask_copilot(
             resource = db.query(Resource).filter(Resource.event_id == event_id).first()
 
     context_block = _build_context_block(event, pred, resource)
+
+    if not event_id:
+        from app.models.event import EventStatus
+        recent_events = (
+            db.query(Event)
+            .filter(Event.status.in_([EventStatus.ACTIVE, EventStatus.SCHEDULED]))
+            .order_by(Event.start_datetime)
+            .limit(10)
+            .all()
+        )
+        if recent_events:
+            context_block += "\n## Global Context: Active & Upcoming Events in the System\n"
+            context_block += "IMPORTANT: The following events are currently active or scheduled. If the user asks for a list or details of events, ALWAYS provide them directly from this list. Do NOT tell them to check the dashboard.\n"
+            for e in recent_events:
+                context_block += f"- ID {e.id}: '{e.name}' ({e.event_type.value}) at {e.location_name} (Starts: {e.start_datetime.strftime('%Y-%m-%d %H:%M')}, Status: {e.status.value.upper()})\n"
+
     full_prompt = f"{_SYSTEM_PROMPT}\n{context_block}\n\n## User Query\n{query}"
 
     try:

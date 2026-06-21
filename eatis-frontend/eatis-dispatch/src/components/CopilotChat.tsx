@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
 import { useMutation } from "@tanstack/react-query";
 import { api } from "@/lib/api";
 import { Button } from "@/components/ui/button";
@@ -48,6 +49,13 @@ export default function CopilotChat({ eventId }: { eventId?: number }) {
     ask.mutate(q);
   };
 
+  const handleKey = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSubmit(e as unknown as React.FormEvent);
+    }
+  };
+
   return (
     <div className="flex-1 flex flex-col min-h-0 mt-4">
       <div className="flex-1 overflow-y-auto space-y-3 pr-1">
@@ -62,10 +70,31 @@ export default function CopilotChat({ eventId }: { eventId?: number }) {
             className={
               m.role === "user"
                 ? "bg-primary/15 border-l-2 border-primary p-3 rounded-md text-sm"
-                : "bg-card border border-border p-3 rounded-md text-sm whitespace-pre-wrap"
+                : "bg-card border border-border p-3 rounded-md text-sm copilot-prose"
             }
           >
-            {m.content}
+            {m.role === "assistant" ? (
+              <ReactMarkdown
+                components={{
+                  p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
+                  ul: ({ children }) => <ul className="list-disc pl-4 mb-2 space-y-1">{children}</ul>,
+                  ol: ({ children }) => <ol className="list-decimal pl-4 mb-2 space-y-1">{children}</ol>,
+                  li: ({ children }) => <li className="leading-relaxed">{children}</li>,
+                  strong: ({ children }) => <strong className="font-semibold text-foreground">{children}</strong>,
+                  em: ({ children }) => <em className="italic">{children}</em>,
+                  h1: ({ children }) => <h1 className="text-base font-bold mb-1 mt-2 first:mt-0">{children}</h1>,
+                  h2: ({ children }) => <h2 className="text-sm font-bold mb-1 mt-2 first:mt-0">{children}</h2>,
+                  h3: ({ children }) => <h3 className="text-sm font-semibold mb-1 mt-2 first:mt-0">{children}</h3>,
+                  code: ({ children }) => <code className="bg-accent/60 px-1 py-0.5 rounded text-xs mono">{children}</code>,
+                  blockquote: ({ children }) => <blockquote className="border-l-2 border-primary/40 pl-3 italic text-muted-foreground my-1">{children}</blockquote>,
+                  hr: () => <hr className="border-border my-2" />,
+                }}
+              >
+                {m.content}
+              </ReactMarkdown>
+            ) : (
+              m.content
+            )}
           </div>
         ))}
         {ask.isPending && (
@@ -77,6 +106,7 @@ export default function CopilotChat({ eventId }: { eventId?: number }) {
         <Textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKey}
           placeholder="Ask the copilot…"
           rows={2}
           className="resize-none"

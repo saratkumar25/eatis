@@ -28,13 +28,7 @@ export function CopilotLauncher() {
 
   return (
     <>
-      <Button
-        onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-6 z-50 shadow-lg rounded-full h-14 w-14 p-0"
-        aria-label="Ask EATIS AI"
-      >
-        <MessageSquare className="h-6 w-6" />
-      </Button>
+
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetContent className="w-full sm:max-w-lg flex flex-col">
           <SheetHeader>

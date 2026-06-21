@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { api } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
@@ -18,6 +19,8 @@ export const Route = createFileRoute("/_app/profile")({
 function ProfilePage() {
   const { user } = useAuth();
   const [form, setForm] = useState({ current_password: "", new_password: "" });
+  const [showCurrent, setShowCurrent] = useState(false);
+  const [showNew, setShowNew] = useState(false);
 
   const change = useMutation({
     mutationFn: async () => (await api.post("/auth/change-password", form)).data,
@@ -54,22 +57,44 @@ function ProfilePage() {
         >
           <div className="space-y-2">
             <Label>Current Password</Label>
-            <Input
-              type="password"
-              value={form.current_password}
-              onChange={(e) => setForm({ ...form, current_password: e.target.value })}
-              required
-            />
+            <div className="relative">
+              <Input
+                type={showCurrent ? "text" : "password"}
+                value={form.current_password}
+                onChange={(e) => setForm({ ...form, current_password: e.target.value })}
+                required
+                className="pr-10"
+              />
+              <button
+                type="button"
+                className="absolute inset-y-0 right-0 px-3 flex items-center text-muted-foreground hover:text-foreground focus:outline-none"
+                onClick={() => setShowCurrent(!showCurrent)}
+                tabIndex={-1}
+              >
+                {showCurrent ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+              </button>
+            </div>
           </div>
           <div className="space-y-2">
             <Label>New Password</Label>
-            <Input
-              type="password"
-              value={form.new_password}
-              onChange={(e) => setForm({ ...form, new_password: e.target.value })}
-              required
-              minLength={6}
-            />
+            <div className="relative">
+              <Input
+                type={showNew ? "text" : "password"}
+                value={form.new_password}
+                onChange={(e) => setForm({ ...form, new_password: e.target.value })}
+                required
+                minLength={6}
+                className="pr-10"
+              />
+              <button
+                type="button"
+                className="absolute inset-y-0 right-0 px-3 flex items-center text-muted-foreground hover:text-foreground focus:outline-none"
+                onClick={() => setShowNew(!showNew)}
+                tabIndex={-1}
+              >
+                {showNew ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+              </button>
+            </div>
           </div>
           <Button type="submit" disabled={change.isPending}>
             {change.isPending ? "Updating…" : "Update Password"}

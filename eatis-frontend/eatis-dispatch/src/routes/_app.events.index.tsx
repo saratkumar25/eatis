@@ -118,18 +118,19 @@ function EventsList() {
         </div>
       </Card>
 
-      <Card className="overflow-hidden overflow-x-auto">
-        <table className="w-full text-sm min-w-[600px]">
-          <thead className="bg-accent/40 text-left text-xs uppercase mono text-muted-foreground">
-            <tr>
-              <th className="px-4 py-3">Name</th>
-              <th>Type</th>
-              <th>Location</th>
-              <th>Start</th>
-              <th>Crowd</th>
-              <th>Status</th>
-            </tr>
-          </thead>
+      <Card className="overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead className="bg-accent/40 text-left text-xs uppercase mono text-muted-foreground">
+              <tr>
+                <th className="px-4 py-3 whitespace-nowrap">Name</th>
+                <th className="pr-4 whitespace-nowrap">Type</th>
+                <th className="pr-4 whitespace-nowrap">Location</th>
+                <th className="pr-4 whitespace-nowrap">Start</th>
+                <th className="pr-4 whitespace-nowrap">Crowd</th>
+                <th className="pr-4 whitespace-nowrap">Status</th>
+              </tr>
+            </thead>
           <tbody>
             {q.isLoading && (
               <tr>
@@ -151,20 +152,21 @@ function EventsList() {
                 onClick={() => nav({ to: "/events/$id", params: { id: String(e.id) } })}
                 className="border-t border-border cursor-pointer hover:bg-accent/30"
               >
-                <td className="px-4 py-3 font-medium">{e.name}</td>
-                <td className="mono text-xs">{e.event_type}</td>
-                <td>{e.location_name}</td>
-                <td className="mono text-xs">
+                <td className="px-4 py-3 font-medium whitespace-nowrap">{e.name}</td>
+                <td className="pr-4 mono text-xs whitespace-nowrap text-muted-foreground">{e.event_type}</td>
+                <td className="pr-4 whitespace-nowrap truncate max-w-[200px]" title={e.location_name}>{e.location_name}</td>
+                <td className="pr-4 mono text-xs whitespace-nowrap">
                   {e.start_datetime ? formatIST(e.start_datetime, "MMM d, yyyy HH:mm") : "—"}
                 </td>
-                <td className="mono text-xs">{e.expected_crowd_size?.toLocaleString()}</td>
-                <td>
-                  <span className="mono text-xs uppercase">{e.status}</span>
+                <td className="pr-4 mono text-xs whitespace-nowrap">{e.expected_crowd_size?.toLocaleString()}</td>
+                <td className="pr-4 whitespace-nowrap">
+                  <span className="mono text-[10px] uppercase bg-accent px-2 py-1 rounded-md">{e.status}</span>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+        </div>
       </Card>
 
       <div className="flex justify-between items-center mt-4 text-sm">
