@@ -11,9 +11,9 @@
 ![Gemini](https://img.shields.io/badge/Gemini-2.5%20Flash-4285F4?logo=googlegemini&logoColor=white)
 ![Status](https://img.shields.io/badge/status-active-success)
 
-EATIS (Event Traffic Intelligence System) is an AI-powered traffic management platform designed to help traffic authorities predict and manage congestion caused by public events such as festivals, political rallies, sports events, construction activities, and public gatherings.
-
-Using **Machine Learning (XGBoost)**, **Geospatial Analysis**, and **Gemini AI**, EATIS predicts traffic impact, generates congestion heatmaps, recommends resource deployment, suggests diversion routes, and provides AI-powered decision support.
+EATIS is an AI-powered traffic management platform that helps traffic authorities predict and manage congestion caused by public events — festivals, rallies, sports events, construction, and large gatherings — using **XGBoost**, **geospatial analysis**, and **Gemini AI**.
+ 
+🔗 **Live Demo:** [eatis.vercel.app](https://eatis.vercel.app)
 
 ---
 
@@ -80,38 +80,14 @@ Simulate future events and analyze:
 
 ---
 
-## Technology Stack
-
-### Backend
-
-* FastAPI
-* PostgreSQL
-* SQLAlchemy
-* XGBoost
-* Scikit-Learn
-* Pandas
-* NumPy
-* Gemini 2.5 Flash API
-
-### Frontend
-
-* React
-* Vite
-* Tailwind CSS
-* TanStack Query
-* TanStack Router
-* Leaflet Maps
-
-### Infrastructure
-
-* Docker
-* Docker Compose
-
-### Mapping & Routing
-
-* OpenStreetMap
-* Leaflet
-* NetworkX
+## Tech Stack
+ 
+| Layer | Technologies |
+|---|---|
+| **Backend** | FastAPI, PostgreSQL, SQLAlchemy, XGBoost, Scikit-Learn, Pandas, NumPy, Gemini 2.5 Flash API |
+| **Frontend** | React, Vite, Tailwind CSS, TanStack Query, TanStack Router, Leaflet Maps |
+| **Infrastructure** | Docker, Docker Compose |
+| **Mapping & Routing** | OpenStreetMap, Leaflet, NetworkX |
 
 ---
 
@@ -144,7 +120,6 @@ Events Heatmaps Diversions Reports
 
 ## Default Credentials
 
-Live URL: https://eatis.vercel.app/
 ### Operator role:
 ```text
 Email: operator1@gmail.com
