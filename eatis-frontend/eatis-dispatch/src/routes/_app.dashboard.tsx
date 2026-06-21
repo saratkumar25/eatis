@@ -91,7 +91,7 @@ function Dashboard() {
               </Link>
             </Button>
             <Button variant="outline" onClick={() => openCopilot()}>
-              <Bot className="h-4 w-4 mr-1" /> Copilot
+              <Bot className="h-4 w-4 mr-1" /> EATIS AI
             </Button>
           </>
         }

@@ -217,7 +217,7 @@ function CommandCenter() {
                 openCopilot({ eventId: Number(id), eventLabel: e?.name })
               }
             >
-              <Bot className="h-4 w-4 mr-1" /> Ask Copilot
+              <Bot className="h-4 w-4 mr-1" /> Ask EATIS AI
             </Button>
             {can(["operator", "admin"]) && (
               <>

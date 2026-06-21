@@ -31,14 +31,14 @@ export function CopilotLauncher() {
       <Button
         onClick={() => setOpen(true)}
         className="fixed bottom-6 right-6 z-50 shadow-lg rounded-full h-14 w-14 p-0"
-        aria-label="Ask Copilot"
+        aria-label="Ask EATIS AI"
       >
         <MessageSquare className="h-6 w-6" />
       </Button>
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetContent className="w-full sm:max-w-lg flex flex-col">
           <SheetHeader>
-            <SheetTitle className="display">AI Copilot</SheetTitle>
+            <SheetTitle className="display">EATIS AI</SheetTitle>
             {state.eventLabel && (
               <p className="text-xs text-muted-foreground mono">
                 Context: event #{state.eventId} — {state.eventLabel}

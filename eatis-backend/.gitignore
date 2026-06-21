@@ -12,7 +12,7 @@ env/
 .env.local
 
 # Models (trained artifacts — regenerate via scripts/train_from_csv.py)
-models/
+/models/
 *.json.bak
 
 # Data files (large CSVs — don't commit to repo)

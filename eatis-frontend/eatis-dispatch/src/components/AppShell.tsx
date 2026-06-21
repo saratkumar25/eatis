@@ -38,7 +38,7 @@ const navItems = [
     roles: ["analyst", "operator", "admin"],
   },
   { to: "/post-event", label: "Post-Event", icon: ClipboardCheck, roles: null },
-  { to: "/copilot", label: "Copilot", icon: Bot, roles: null },
+  { to: "/copilot", label: "EATIS AI", icon: Bot, roles: null },
   { to: "/users/create", label: "Create User", icon: UserPlus, roles: ["admin"] },
 ] as const;
 

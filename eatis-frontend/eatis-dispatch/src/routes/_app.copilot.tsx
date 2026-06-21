@@ -57,7 +57,7 @@ function CopilotPage() {
           <Sparkles className="h-5 w-5 text-primary" />
         </div>
         <div>
-          <h1 className="display text-lg leading-none">AI Copilot</h1>
+          <h1 className="display text-lg leading-none">EATIS AI</h1>
           <p className="text-[11px] text-muted-foreground mt-0.5 mono">
             Powered by Gemini · Operational intelligence assistant
           </p>
@@ -73,7 +73,7 @@ function CopilotPage() {
               <Bot className="h-8 w-8 text-primary" />
             </div>
             <div>
-              <p className="font-semibold text-lg">Ask the Copilot</p>
+              <p className="font-semibold text-lg">Ask EATIS AI</p>
               <p className="text-sm text-muted-foreground mt-1 max-w-xs">
                 Ask anything about traffic, events, predictions, resource
                 allocation, or operational recommendations.
