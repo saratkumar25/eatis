@@ -63,29 +63,9 @@ Once you're logged into the dashboard, here's the typical workflow:
 ---
 
 
-## 🏛️ System Architecture
+## System Architecture
 
-```text
-React Dashboard
-        │
-        ▼
-    FastAPI API
-        │
- ┌──────┼────────────┬────────────┐
- ▼      ▼            ▼            ▼
-
-Event  XGBoost    Route       Gemini
-Module Prediction Engine     Copilot
-
- ▼      ▼            ▼            ▼
-
-Events Heatmaps Diversions Reports
-
-        │
-        ▼
-
-    PostgreSQL
-```
+[![Chat-GPT-Image-Jun-22-2026-10-15-08-PM.png](https://i.postimg.cc/Dz3yzD4k/Chat-GPT-Image-Jun-22-2026-10-15-08-PM.png)](https://postimg.cc/hXMqy20p)
 
 ---
 
@@ -99,15 +79,13 @@ Password: operator123
 ### Analyst role:
 ```text
 Email: analyst1@gmail.com
-Password: operator123
+Password: analyst123
 ```
 ### Viewer role:
 ```text
 Email: viewer1@gmail.com
-Password: operator123
+Password: viewer123
 ```
-
-Local development only — change these (or remove the seed) before deploying anywhere publicly reachable.
 
 ---
 
