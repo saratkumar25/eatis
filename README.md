@@ -148,7 +148,7 @@ eatis/
 * Smart Signal Optimization
 * Multi-Event Prediction
 * AI Incident Response Assistant
-
+* Advanced Role-Based Access
 ---    
 
 ## Team
